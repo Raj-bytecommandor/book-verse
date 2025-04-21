@@ -1,0 +1,74 @@
+.floating-planets {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.planet-1 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 30% 40%, #9D4EDD, #180F3A);
+  top: 15%;
+  right: 10%;
+  animation: float 20s infinite linear;
+}
+
+.planet-2 {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at 30% 40%, #4E8DDD, #1A1B4B);
+  bottom: 20%;
+  left: 5%;
+  animation: float 25s infinite linear reverse;
+}
+
+.planet-3 {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 40%, #E0E7FF, #4E8DDD);
+  top: 40%;
+  left: 20%;
+  animation: float 15s infinite linear;
+}
+
+.comet {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #E0E7FF, transparent);
+  top: 20%;
+  left: -100px;
+  animation: comet 8s infinite linear;
+  transform: rotate(-45deg);
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #E0E7FF;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+@keyframes float {
+  from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+@keyframes comet {
+  from { transform: translateX(-100px) rotate(-45deg); }
+  to { transform: translateX(calc(100vw + 100px)) rotate(-45deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}

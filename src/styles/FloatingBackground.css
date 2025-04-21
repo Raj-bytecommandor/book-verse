@@ -1,0 +1,70 @@
+.floating-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.star {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: var(--star-color);
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+  z-index: 0;
+}
+
+.floating-effect {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.2;
+  z-index: -1;
+  animation: float 15s infinite;
+}
+
+.effect-1 {
+  background: var(--accent-purple);
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  left: 15%;
+}
+
+.effect-2 {
+  background: var(--accent-blue);
+  width: 400px;
+  height: 400px;
+  bottom: 10%;
+  right: 15%;
+  animation-delay: -7s;
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.2;
+  }
+  25% { 
+    transform: translate(50px, 50px) rotate(90deg);
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translate(0, 100px) rotate(180deg);
+    opacity: 0.2;
+  }
+  75% { 
+    transform: translate(-50px, 50px) rotate(270deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+}

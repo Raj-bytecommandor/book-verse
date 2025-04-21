@@ -1,0 +1,152 @@
+.landing-container {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('/books-background.jpg') center/cover no-repeat;
+}
+
+.landing-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.landing-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: fadeIn 1s ease-in;
+}
+
+.landing-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease-in 0.5s both;
+}
+
+.enter-button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background: #e74c3c;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  animation: fadeIn 1s ease-in 1s both;
+}
+
+.enter-button:hover {
+  transform: scale(1.05);
+  background: #c0392b;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.star-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, 
+    rgba(0, 0, 0, 0.3) 0%, 
+    rgba(0, 0, 0, 0.6) 100%);
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+  .landing-content {
+    padding: 1rem;
+    max-width: 90%;
+  }
+
+  .landing-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .landing-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .enter-button {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile Screens */
+@media screen and (max-width: 480px) {
+  .landing-content h1 {
+    font-size: 2rem;
+  }
+
+  .landing-content p {
+    font-size: 1rem;
+  }
+
+  .enter-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .star {
+    width: 1px;
+    height: 1px;
+  }
+}
+
+/* Adjust Background for Mobile */
+@media screen and (max-width: 768px) {
+  .landing-container {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                url('/books-background.jpg') center/cover no-repeat;
+  }
+}
+
+/* Handle Device Orientation */
+@media screen and (max-height: 500px) {
+  .landing-content h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .landing-content p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .enter-button {
+    padding: 0.6rem 1.2rem;
+  }
+}

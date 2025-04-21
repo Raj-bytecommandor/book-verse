@@ -1,0 +1,30 @@
+.floating-message-container {
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.floating-message {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+  color: #2c3e50;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.floating-message.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .floating-message {
+    font-size: 1.5rem;
+  }
+}
