@@ -8,6 +8,9 @@
   --text-secondary: #B8B8D0;
   --card-bg: rgba(26, 27, 75, 0.5);
   --glass-effect: rgba(255, 255, 255, 0.1);
+  --content-padding: clamp(1rem, 5vw, 2rem);
+  --content-width: min(100% - 2rem, 1200px);
+  --header-height: clamp(3rem, 10vh, 5rem);
 }
 
 body {
@@ -24,6 +27,8 @@ body {
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;  /* For mobile browsers */
 }
 
 .floating-icons {
@@ -95,6 +100,9 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   position: relative;
   z-index: 1;
+  margin: 0 auto;
+  padding: var(--content-padding);
+  width: var(--content-width);
 }
 
 ::selection {
@@ -129,7 +137,6 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(52, 152, 219, 0.2);
 }
 
-// Add star animation
 @keyframes twinkle {
   0%, 100% { opacity: 0.2; }
   50% { opacity: 1; }
@@ -142,4 +149,39 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--star-color);
   border-radius: 50%;
   animation: twinkle 3s infinite;
+}
+
+/* Responsive Typography */
+html {
+  font-size: clamp(14px, 1vw + 8px, 18px);
+}
+
+/* Flexible Grid System */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Tables */
+table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  
+  .flex-col-mobile {
+    flex-direction: column;
+  }
 }

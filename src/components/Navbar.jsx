@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBook, FaUser, FaUserPlus, FaEdit } from 'react-icons/fa';
+import { FaBook, FaUser, FaUserPlus, FaEdit, FaBars } from 'react-icons/fa';
 import { useProfile } from '../context/ProfileContext';
 import '../styles/Navbar.css';
 
@@ -8,6 +8,7 @@ function Navbar() {
   const { profile, updateProfile } = useProfile();
   const [showModal, setShowModal] = useState(false);
   const [tempProfile, setTempProfile] = useState(profile);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -30,7 +31,14 @@ function Navbar() {
         </div>
       </div>
 
-      <div className="nav-right">
+      <button 
+        className="mobile-menu-btn"
+        onClick={() => setShowMobileMenu(!showMobileMenu)}
+      >
+        <FaBars />
+      </button>
+
+      <div className={`nav-right ${showMobileMenu ? 'active' : ''}`}>
         <Link to="/login" className="auth-button login">
           <FaUser /> Login
         </Link>
